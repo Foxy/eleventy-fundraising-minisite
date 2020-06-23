@@ -1,0 +1,168 @@
+---
+layout: onepage.njk
+title: JAMStack e-commerce with Foxy.io
+---
+
+<section id="welcome" class="pt-8 p-8 md:p-12 text-left">
+  <h1>
+    {{ site.title }}
+  </h1>
+  <h2>
+    {{ site.subtitle }}
+  </h2>
+
+  {% set welcome %}{% include './_data/welcome.md' %}{% endset %}
+  {% markdown welcome %}
+
+  {# {% if site.texts.presentation %}
+    <div>
+      {{ site.texts.presentation }}
+    </div>
+  {% endif %} #}
+
+  {% if collections.highlight.length > 1 %}
+  <h4>
+    {{ site.texts.highlightsTitle }}
+  </h4>
+
+  {% markdown site.texts.highlightsText %}
+
+  <ul class="list-disc px-8 text-left">
+
+    {# TIP: Iterate over a collection
+    This collection can be created simply by creating a folder with a name
+    starting with "_" within the src folder.
+    Inside this folder create your items as markdown files.
+
+    Learn more at: https://www.11ty.dev/docs/collections/
+    #}
+    {%- for highlight in collections.highlight -%}
+      <li>
+        <button class="underline hover:no-underline text-primary" data-action="setVideoUrl" data-url="{{highlight.data.video.embed}}">{{highlight.data.name}}</button>
+      </li>
+    {%- endfor -%}
+    <li>
+      Logo from <a target="_blank" href="https://www.designevo.com/logo-maker/" title="free online logo maker">DesignEvo free logo creator</a>
+    </li>
+  </ul>
+  {% endif %}
+
+</section>
+
+{% if site.texts.aboutTitle %}
+<hr />
+
+<section id="about" class="pt-8 p-8 md:p-12 text-left relative">
+  {% include 'backToTop.njk' %}
+  <h2>{{ site.texts.aboutTitle }}</h2>
+
+  {% set about %}{% include './_data/about.md' %}{% endset %}
+  {% if about %}{% markdown about %}{% endif %}
+
+  {# TIP: Uncomment the following `lorem`  line to see how fetching dynamic content works.
+  Check out the _data/lorem.js file and fetch your own data during compilation.
+  #}
+  {# {{ lorem.longTeaser | safe }} #}
+</section>
+{% endif %}
+
+<hr />
+
+<section id="products" class="pt-8 p-8 md:p-12 pb-0 md:pb-0 text-left relative">
+  {% include 'backToTop.njk' %}
+  <h2>{{ site.texts.productsTitle }}</h2>
+</section>
+
+<section class="container p-2 pb-4 m-auto flex w-full flex-wrap items-stretch justify-start relative">
+  {% for product in collections.product %}
+
+    <div class="flex flex-col items-center w-full lg:w-1/2 p-2">
+      {# TIP: Use includes to avoid repetition
+          11ty recognizes template files in the _includes folder.
+      #}
+      <div data-foxy-product-container="data-foxy-product-container" class="rounded-md overflow-hidden shadow-lg border-dark border-2 h-full w-full">
+        {% if product.data.image %}
+          <div>
+            {% productPicture product.data.image,
+            product.data.image_alt_text %}
+          </div>
+        {% endif %}
+
+        <div class="p-3">
+          <input type="hidden" name="name" value="{{ product.data.name }}">
+          <input type="hidden" name="price" value="{{ product.data.price }}">
+
+          <div class="flex flex-wrap text-lg">
+            <div class="w-2/3">
+              <h4 class="font-bold mb-1 text-dark">{{ product.data.name }}</h4>
+            </div>
+            <div class="w-1/3 text-right text-primary">
+              {% if product.data.price < 10000 %}
+                <p class="p-0">
+                  {{ site.currency_symbol }}{{ product.data.price }}<br>
+                  ({{ site.currency_symbol }}{{ product.data.price_monthly }}/mo)
+                </p>
+              {% else %}
+                <p>
+                  {{ site.currency_symbol }}{{ product.data.price_monthly }}/mo
+                </p>
+              {% endif %}
+            </div>
+          </div>
+
+          <hr class="my-1">
+
+          <div class="text-dark text-base">
+            {{ product.templateContent|safe }}
+          </div>
+
+          <hr class="my-3">
+
+          <div class="flex flex-wrap leading-7 text-sm space-x-2 justify-between">
+            <div class="w-1/3 pr-1">
+              <div class="custom-number-input">
+                <div class="flex flex-row w-full rounded-lg relative bg-transparent">
+                  <button data-action="decrement" class=" bg-gray-300 text-dark hover:text-light hover:bg-dark h-full w-20 rounded-l cursor-pointer outline-none">
+                    <span class="m-auto text-2xl leading-none font-thin">−</span>
+                  </button>
+                  <input type="number" min="1" class="outline-none
+                overflow-hidden focus:outline-none
+                text-center w-full bg-gray-300 font-semibold text-xs text-dark hover:text-black focus:text-black  md:text-basecursor-default flex items-center  outline-none" name="quantity" value="1"></input>
+                  <button data-action="increment" class="bg-gray-300 text-dark hover:text-light hover:bg-dark h-full w-20 rounded-r cursor-pointer">
+                    <span class="m-auto text-2xl leading-none font-thin">+</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-1/3 pr-1">
+              <!-- TIP: Set variables to feed includes Notice that this includes can call other includes. By setting the variable addToCartBtn here we can feed the include with the data it needs -->
+              {% set addToCartBtn = {
+                product: product.data,
+                currency: site.currency_symbol,
+                price: product.data.price,
+                color: 'primary',
+                text: 'Once'
+              } %}
+              {% if product.data.price < 10000 %}
+                {% include "addtocart_button.njk" %}
+              {% endif %}
+            </div>
+            <div class="w-1/3 px-0">
+              {% set addToCartBtn = {
+              product: product.data,
+              currency: site.currency_symbol,
+              price: product.data.price_monthly,
+              color: 'primary-dark',
+              text: 'Monthly'
+              }
+            %}
+              {% include "addtocart_button.njk" %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+</section>

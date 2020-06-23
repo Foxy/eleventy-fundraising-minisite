@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: One-page complete e-commerce or live-event site.
+---
+
+
+<div class="flex flex-wrap sm:h-screen">
+  <div class=" w-full sm:w-1/2 h-64 sm:h-full fixed sm:relative bg-cover bg-opacity-50 bg-light z-20 shadow-xl md:shadow-none border-b-2 border-primary "
+  >
+
+  <div class="text-center align-middle">
+    <iframe id="video-player"
+      {# Show thumbnail of the video as a background for a fast reponse.  #}
+      style="
+        background-position: center center;
+        background-image: url(https://img.youtube.com/vi/{{
+        collections.highlight[0].data.video.embed | youtubeId
+        }}/maxresdefault.jpg);
+        background-size: xcover
+      "
+      class="absolute w-full h-full"
+      src="{{ collections.highlight[0].data.video.embed }}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+  </div>
+  <div id="content" class="w-full sm:w-1/2 h-full sm:overflow-y-scroll mt-64 sm:mt-0 z-10">
+    {% include "nav.njk" %}
+    {{ content | safe }}
+    {% include "footer_bottom.njk" %}
+  </div>
+</div>

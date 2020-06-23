@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* TIP: You can use Tailwind utilities in your CSS files */
+a {
+	@apply text-primary underline;
+}
+
+/* From https://tailwindcomponents.com/component/number-input-counter */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+img#logo {
+	max-height: 175px;
+}
+.custom-number-input input:focus {
+	outline: none !important;
+}
+.custom-number-input button:focus {
+	outline: none !important;
+}
+
+#content > hr {
+	@apply m-4 mx-8 border-primary;
+}
+
+[data-foxy-product-container] div.text-dark.text-base > p:last-of-type {
+	@apply pb-0;
+}
+
+h1 {
+	@apply text-3xl text-left text-primary-dark font-bold leading-none pb-2;
+}
+h2 {
+	@apply text-2xl text-left text-primary font-bold leading-none pb-2;
+}
+h3 {
+	@apply text-xl text-left text-primary font-bold leading-none pb-2;
+}
+h4 {
+	@apply text-lg text-left text-primary font-bold leading-none pb-2;
+}
+p {
+	@apply pb-4;
+}
+
+@tailwind utilities;

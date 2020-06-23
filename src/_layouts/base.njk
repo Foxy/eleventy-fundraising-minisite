@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "head.njk" %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    {% if env.env == 'production' %}
+      <!-- capture the CSS content as a Liquid variable -->
+      {% set css %}{% include "app.compiled.css" %}{% endset %}
+      <style>
+        {{ css | safe }}
+      </style>
+    {% else %}
+    <link rel="stylesheet" href="/static/app.compiled.css">
+    {% endif %}
+  </head>
+  <body class="font-sans">
+    {# {% include "nav.njk" %} #}
+    {{ content | safe }}
+    {# {% include "footer_bottom.njk" %} #}
+    <script src="/static/app.bundled.js"></script>
+    <script data-cfasync="false" src="https://cdn.foxycart.com/{{ store.storedomain }}/loader.js" async defer></script>
+
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{
+	"name": "foxy-eleventy-fundraising-minisite",
+	"version": "1.0.0",
+	"description": "A one-page ecommerce website built with Foxy.io, Eleventy, Tailwind, PurgeCSS and PostCSS",
+	"scripts": {
+		"start": "concurrently \"postcss src/_assets/stylesheets/*.css -o src/static/app.compiled.css --watch --verbose\" \"webpack --watch --config webpack.config.js\" \"eleventy --serve --watch\"",
+		"build": "del dist && eleventy && NODE_ENV=production postcss src/_assets/stylesheets/app.css -o src/_includes/app.compiled.css && webpack -p --config webpack.config.js && ELEVENTY_ENV=production eleventy"
+	},
+	"author": "Chris Collins",
+	"license": "ISC",
+	"devDependencies": {
+		"@11ty/eleventy": "^0.11.0",
+		"@11ty/eleventy-img": "^0.2.4",
+		"@babel/core": "^7.8.7",
+		"@babel/preset-env": "^7.8.7",
+		"@fullhuman/postcss-purgecss": "^2.1.0",
+		"autoprefixer": "^9.7.4",
+		"babel-loader": "^8.0.6",
+		"concurrently": "^5.1.0",
+		"cz-conventional-changelog": "^3.2.0",
+		"del-cli": "^3.0.0",
+		"html-minifier": "^4.0.0",
+		"husky": "^4.2.5",
+		"js-yaml": "^3.13.1",
+		"luxon": "^1.22.0",
+		"node-fetch": "^2.6.0",
+		"postcss-cli": "^7.1.0",
+		"prettier": "2.0.5",
+		"pretty-quick": "^2.0.1",
+		"tailwindcss": "^1.2.0",
+		"webpack": "^4.42.0",
+		"webpack-cli": "^3.3.11"
+	},
+	"dependencies": {},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	}
+}

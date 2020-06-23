@@ -1,0 +1,6 @@
+{
+	"include": "product.njk",
+	"permalink": "/products/{{ name | slug | title }}/",
+	"category": "DEFAULT",
+	"template_set": "DEFAULT"
+}

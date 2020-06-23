@@ -1,0 +1,24 @@
+<footer class="font-sans bg-dark text-white py-8 px-4">
+  <div class="mx-auto container overflow-hidden flex flex-col lg:flex-row justify-between">
+
+      <div class="text-gray-700 flex flex-col">
+        <div class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Follow Us</div>
+        <div class="flex pl-4 justify-start">
+        {% for key, i in site.social_networks %}
+          <a href="{{ i.url }}"
+          class="block flex items-center text-white hover:text-light mr-6 no-underline" >
+            <i class="{{ i.icon }}"></i>
+          </a>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-4 mt-4 text-gray-700 text-xs border-t border-light text-center">
+    <a href="https://foxy.io" class="text-light no-underline" target="_blank">
+      ©2020 FOXY.IO
+    </a>
+    </div>
+
+  </div>
+</footer>
