@@ -8,6 +8,7 @@
 
   # Default build command.
   command = "npm run build"
+
 [template.environment]
   FOXYSTORENAME="What's your store name? (Default: My Store)"
   FOXYSTORELOGO="What's your logo URL? (Default: static/logo.png)"

@@ -17,7 +17,7 @@ Click the `deploy` button below, and in a few minutes you'll have:
 
 Seriously, if you haven't seen how deploying to Netlify works before, it's almost magical. 🧙🏽‍♀️
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/ndvo/jamstack-web-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Foxy/eleventy-fundraising-minisite"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 # Overview
 
@@ -69,7 +69,7 @@ Simply click the fork me button, and you will have your own version of the repos
 
 **Already?** Yup, that's it! You can now deploy your own version of the site so that you can already see it in production.
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/ndvo/jamstack-web-starter"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Foxy/eleventy-fundraising-minisite"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 **What next?** You do need to configure your own Foxy.io account and set things like your store domain and payment settings (PayPal, Stripe, Square, Authorize.net, etc.), but all the heavy lifting is done. Read on to learn how to customize your content, products, videos, etc.
 
