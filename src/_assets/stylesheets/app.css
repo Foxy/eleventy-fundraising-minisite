@@ -51,8 +51,20 @@ h3 {
 h4 {
 	@apply text-lg text-left text-primary font-bold leading-none pb-2;
 }
-p {
+p,
+ol,
+ul {
 	@apply pb-4;
+}
+ul {
+	@apply list-disc px-8 text-left;
+}
+ol {
+	@apply list-decimal px-8 text-left;
+}
+ul li,
+ol li {
+	@apply pb-1;
 }
 
 @tailwind utilities;
