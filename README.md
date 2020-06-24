@@ -19,6 +19,8 @@ Seriously, if you haven't seen how deploying to Netlify works before, it's almos
 
 <a href="https://app.netlify.com/start/deploy?repository=https://github.com/Foxy/eleventy-fundraising-minisite"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
+(Note that if you want to keep your site updated with any bugfixes or new functionality from this repo, follow the steps in the [How to Use This Project](#how-to-use-this-project) section instead.)
+
 # Overview
 
 This project offers you a ready-made JAMstack website with a hosted ecommerce solution. You'll see it in action right away and able to customize everything to fit your needs.
@@ -57,23 +59,17 @@ We're adding relevant comments to the code so that you understand clearly where 
 
 # How to Use This Project
 
-There are two ways for you to start your own JAMstack ecommerce using this repository. You may fork it and customize it, or you may start your own from scratch following the tutorial below.
+## 1. Set up a Foxy.io Store
 
-## 1. Fork it!
-
-If you want to fork it, go ahead! Every file is documented so that you will know what to tweak and how.
-
-Simply click the fork me button, and you will have your own version of the repository.
+Go to [Foxy.io](https://foxy.io/) and create an account, if you don't already have one. It's free during development, so don't worry about that. You can change any of your settings later. The important thing is to create a store and copy out the domain (like `example.foxycart.com`) to use in the next step.
 
 ## 2. Deploy it!!
 
-**Already?** Yup, that's it! You can now deploy your own version of the site so that you can already see it in production.
+The easiest thing to do is to simply click this button: <a href="https://app.netlify.com/start/deploy?repository=https://github.com/Foxy/eleventy-fundraising-minisite"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/Foxy/eleventy-fundraising-minisite"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
+If you'd rather, you can fork this repo, then deploy it to Netlify yourself (which is still super straighforward). That way you'll be able to pull bugfixes and new features (and submit fixes), but that may not be a huge deal to you. If you fork it, you'll end up with a repo named the same as this repo, though, which may not be ideal.
 
-**What next?** You do need to configure your own Foxy.io account and set things like your store domain and payment settings (PayPal, Stripe, Square, Authorize.net, etc.), but all the heavy lifting is done. Read on to learn how to customize your content, products, videos, etc.
-
-## 3. Hack it!!!
+## 3. Customize it!!!
 
 It's time to get our hands dirty.
 
@@ -98,11 +94,12 @@ Load up that URL in your browser and see your site! And, extra cool: If you chan
 
 ### Step By Step
 
+1. **Set your site title and text and such:** Edit `src/_data/site.yaml` file. You'll find you can customize most of the site's texts there. You can set the navigation links, highlight texts, and display messages to your users.
+1. **Set your Foxy store config:** Edit `src/_data/store.js`. These values can come from the Netlify environment variables, but you may want to set them here for your local development.
 1. **Set your own products:** There's a `_products` folder. Replace the products with your own. We'll go into detail in the [Detailed Product Step-By-Step](#detailed-product-step-by-step), which includes fetching products from an external API.
-1. **Set your own logo:** Replace the `src/static/img/mylogo.png` file with your own. Also, replace the _favicon_ files in `src/static/img/`. (Try [favicon.io](https://favicon.io/) to make it easy.)
+1. **Set your own logo:** Replace the `src/static/logo.png` file with your own. Also, replace the _favicon_ files in `src/static/img/`. Alternately, you can change the logo filename or location by editing the `store.js` file. (Try [favicon.io](https://favicon.io/) to make it easy. The placeholder logo is from [DesignEvo free logo creator](https://www.designevo.com/logo-maker/).)
 1. **Set your own theme:** If you are comfortable with CSS and TailwindCSS, go for it. If you aren't, check out the `tailwind.config.js` file in the root directory of the project. By setting these variables, you can start making the website look your own. You can take a look at `/src/assets/stylesheets/app.css` to get a sense for how Tailwind works.
 1. **Set your own videos:** There's a `src/_highlights` folder. In this Each file contains something you want to highlight. Add or remove de `.md` files do add or remove highlights. The first one will be the first video available. They are also used to build the Highlight section of the website.
-1. **Set your own text:** There's a `src/_data/site.yaml` file. You'll find you can customize most of the site's texts there. You can set the navigation links, highlight texts, and display messages to your users.
 1. **ADVANCED: Fetch your data on compile time:** There's a `src/_data/lorem.js` file. It demonstrates how to fetch data from your own API during compile time. This way, you can have your content updated on each new deploy. **Be sure to remove `src/_data/lorem.js` file** if you're not going to use it. It makes real requests during build time. If you are not going to use the data fetched it is simply making unnecessary requests to the server and making your build time slower.
 
 ## Want to dive deeper?
