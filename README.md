@@ -75,7 +75,9 @@ It's time to get our hands dirty.
 
 ### Running Things Locally
 
-We're going to assume you've got git, node, and npm set up already. If not, this may be a bit advanced. You can still work with this repository directly by modifying files in Github, but you'll probably want to spend a bit of time do a bit of googling Clone your repo to your computer, go to the directory in your terminal, and run the following:
+We're going to assume you've got git, node, and npm set up already. If not, this may be a bit advanced. You can still work with this repository directly by modifying files in Github, but you'll probably want to do a bit of googling to get those pieces set up. Once you've done that…
+
+Clone your repo to your computer, go to the directory in your terminal, and run the following:
 
 ```bash
 npm i
