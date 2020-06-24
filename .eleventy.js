@@ -138,5 +138,10 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addFilter("sortByPriceHighToLow", sortByPriceHighToLow);
 
+	eleventyConfig.addNunjucksShortcode("currentYear", () => {
+		const d = new Date();
+		return JSON.stringify(d.getFullYear()); // Stringifying shouldn't be necessary?
+	});
+
 	return conf;
 };

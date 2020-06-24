@@ -3,14 +3,15 @@
 
 title: "JAM Stack e-commerce template" # Appears after the title Page eg. Title - Web Starter
 subtitle: "Making fundraising easy!"
-description: "An e-commerce website built with 11ty.js, TailwindCSS and Foxy.io"
-url: "https://foxy.io/"
-author: "Foxy.io"
+description: "An e-commerce website built with 11ty.js, TailwindCSS and Foxy.io" # Used in the meta tags, for search engines and social sharing
+url: "https://foxy.io/" # Set this to the domain you'll publish this site to
+author: "Foxy.io" # This is used for the copyright notice in the footer
 meta_data:
-  twitter: "@"
+  twitter: "@foxycart" # Used in the meta tags
   default_social_image: "/static/logo.png"
 
 # Careful! Use quotes around your links.
+# You can add additional nav items, and the urls can be external links.
 navigation:
   - name: Welcome
     url: "#welcome"
@@ -26,26 +27,23 @@ navigation:
 texts:
   highlightsTitle: "Here are some of our highlights"
   highlightsText: "Click the links below to load the videos while you browse."
-  aboutTitle: "About Us"
-  productsTitle: "Donation Items"
+  aboutTitle: "About Us" # This the heading for the 2nd section, if desired.
+  productsTitle: "Donation Items" # This is the heading for the products / donation items.
 
 currency_symbol: $
 
 # Careful! Use quotes around your links.
 social_networks:
   blog:
-    url: "https://www.foxy.io/blog/"
+    url: "http://giof.org/"
     icon: "fas fa-blog-square"
   email:
-    url: "hello@foxy.io"
+    url: "http://giof.org/contact-us/"
     icon: "fas fa-envelope-square"
     protocol: "mailto"
   facebook:
-    url: "https://www.facebook.com/foxycart"
+    url: "https://www.facebook.com/GenesisDiez/"
     icon: "fab fa-facebook-square"
-  twitter:
-    url: "https://twitter.com/foxycart"
-    icon: "fab fa-twitter-square"
   youtube:
-    url: "https://www.youtube.com/foxycart"
+    url: "https://www.youtube.com/channel/UCPYuKWST08z9LoMvflR_AIw"
     icon: "fab fa-youtube"
