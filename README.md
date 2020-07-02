@@ -2,6 +2,8 @@
 
 Kickstart your ecommerce with a few clicks. Perfect for non-profit fundraising mini-sites, live events, or anybody looking to build a clean one-page ecommerce or donation site.
 
+Original repo is [Foxy/eleventy-fundraising-minisite](https://github.com/Foxy/eleventy-fundraising-minisite/edit/master/README.md). Related blog post at [Foxy.io](https://www.foxy.io/blog/building-a-turnkey-fundraising-mini-site-with-foxy-and-eleventy/).
+
 ## Who This Is For (and Prerequisites)
 
 This project is primarily intended for web designers and developers (professional and amateur) who have at least a basic knowledge of editing code and using Git, and who want to get an ecommerce/fundraising/donation website up and running quickly, with minimal cost and maintenance. Experience with using your terminal and running Node and `npm` will be needed if you want to do local development, but isn't strictly required.
