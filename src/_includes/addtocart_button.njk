@@ -16,8 +16,10 @@
     addToCartBtn.product.name
     }}&price={{
       addToCartBtn.price
-    }}&quantity=1"
-  target="{{ store.storedomain }}-cart"
+    }}&quantity=1{%
+      if addToCartBtn.code 
+    %}&code={{ addToCartBtn.code }}{% endif %}"
+  target="{{ store.subdomain }}-cart"
   data-foxy-product-link
   class="block no-underline text-center w-full shadow bg-{{ addToCartBtn.color }} hover:bg-dark focus:shadow-outline focus:outline-none text-white text-xs px-1 rounded mb-2 leading-2"
     >

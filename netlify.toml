@@ -13,3 +13,4 @@
   FOXYSTORENAME="What's your store name? (Default: My Store)"
   FOXYSTORELOGO="What's your logo URL? (Default: static/logo.png)"
   FOXYSTOREDOMAIN = "What's your Foxy.io store domain? (Like example.foxycart.com or secure.example.com)"
+  FOXYSTORESECRET = "What's your foxystore secret? (This is the secret used for hmac validation)"
