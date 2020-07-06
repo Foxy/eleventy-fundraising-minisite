@@ -31,6 +31,6 @@ for (let e of Object.keys(foxyEnvironmentVariables)) {
 	}
 }
 
-foxySettings.cart_url = `https://${foxySettings.storedomain}/cart`;
+foxySettings.cart_url = `https://${foxySettings.storedomain}.foxycart.com/cart`;
 
 module.exports = foxySettings;
