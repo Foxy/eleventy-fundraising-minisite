@@ -5,7 +5,7 @@
  *
  */
 foxyDefaultValues = {
-	storedomain: "jamstackecommerceexample",
+	storedomain: "jamstackecommerceexample.foxycart.com",
 	name: "My Store",
 	logo: "static/logo.png", // Relative to the web root
 };
