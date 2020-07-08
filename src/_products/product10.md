@@ -2,7 +2,7 @@
 tags:
   - product
 name: Crazy Cyan Brain
-price: 1000000
+price: 100
 price_monthly: 19
 image: /static/img/product1.jpg
 image_alt_text:  One of our butterflies.Tum, Quintus et Pomponius cum idem s
