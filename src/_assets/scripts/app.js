@@ -1,7 +1,5 @@
 // Changes the video
 setVideoUrl = function (el) {
-	console.log("foo");
-	console.log(el);
 	document
 		.querySelector("#video-player")
 		.setAttribute("src", el.target.getAttribute("data-url"));
@@ -9,7 +7,6 @@ setVideoUrl = function (el) {
 document
 	.querySelectorAll('button[data-action="setVideoUrl"]')
 	.forEach((btn) => {
-		console.log("clicked");
 		btn.addEventListener("click", setVideoUrl);
 	});
 
@@ -54,7 +51,6 @@ document.querySelectorAll("input[name='quantity']").forEach((qty) => {
 			.closest("[data-foxy-product-container]")
 			.querySelectorAll("[data-foxy-product-link]")
 			.forEach(function (l) {
-				// console.log(l.href);
 				l.href = l.href.replace(/&quantity=\d+/g, "&quantity=" + quantity);
 			});
 	});

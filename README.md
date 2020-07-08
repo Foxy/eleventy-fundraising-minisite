@@ -258,6 +258,97 @@ We made our select have rounded borders. We also used a configurable color from 
 
 Now, if someone wishes to change the theme, a quick tweak to the config file will do.
 
+# Using HMAC Validation
+
+Foxy.io supports using HMAC signatures to cryptographically protect your add-to-cart links and forms. Though this is less a concern for non-profit organizations accepting donations, it is nonetheless worth implementing if you're able.
+
+This minisite includes functionality to make it straightforward to setup the link & form signature functionality, which is documented below. If you need more information or intend to customize the implementation, please, refer to the documentation at https://wiki.foxycart.com/v/2.0/hmac_validation
+
+## Easy setup
+
+This minisite comes with an easy to use setup of HMAC validation.
+
+In order to use this feature you need to:
+- provide your Store Secret (or the specific "HMAC signature generation" key within your store secret) as an environment variable
+- provide a `code` parameter for each product
+- configure your store to use HMAC validation (a checkbox in the Advanced Settings of your store)
+
+### Provide your HMAC Secret
+
+#### First, get your HMAC secret
+
+Navigate to you store admin page in Foxy.io
+
+https://admin.foxycart.com/admin.php
+
+Then, visit the Advanced link:  https://admin.foxycart.com/admin.php?ThisAction=EditAdvancedFeatures
+
+![](docs/img/step1.png)
+
+Look for a field called "store secret", click the "Show button" and copy your secret.
+
+![](docs/img/step2.png)
+
+Note that you may have a JSON-formatted secret that includes multiple values. In that case, copy out the `cart_signing` value.
+
+##### While we're here, configure your store to use HMAC validation
+
+To do that, check the "would you like to enable cart validation" box in the same page.
+
+![](docs/img/step3.png)
+
+
+#### Second, provide the secret to your deploy
+
+When you click the "Deploy to Netlify" button, Netlify will ask you some questions. One of them is your store secret. If you provide it there, this step will not be necessary.
+
+Go to your account in Netlify, choose the appropriate site and follow these steps:
+
+1. Click Overview;
+1. Click Site Settings;
+1. Build and Deploy
+1. Environments
+
+You'll find this form:
+
+![](docs/img/step4.png)
+
+The key must be FOXYSTORESECRET and the value is your secret.
+
+```
+Key : FOXYSTORESECRET
+Value: You Secret
+```
+
+### Provide a code for each product
+
+The products in the **products** folder may have a field called `code` (which you can think of as a `SKU` if you prefer that term). This code is needed for the HMAC Validation to be correctly used. This code is a product identifier and you may use whater code you please, provided each product has its own unique code.
+
+Here is an example from `src/product/product2.md`
+
+```markdown
+---
+tags:
+  - product
+name: Weary Black Wall
+price: 468
+price_monthly: 39
+image: /static/img/product9.jpg
+image_alt_text: Non risu potius quam oratione eiciendum? N
+code: WEA4983901
+
+---
+Non risu potius quam oratione eiciendum? Nihil enim hoc differt.
+```
+
+Notice the code `WEA4983901`. Only products with codes such as this will be signed. Other products **will error when added to the cart**. So just make sure all your products have a code (and that the codes are unique per product).
+
+
+
+
+
+
+
 # Where to go from here?
 
 Go ahead and click the deploy button. It will fork this repository for you and deploy a version to production. Go ahead and customize the files at will. You'll find some handy tips along the way.

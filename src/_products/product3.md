@@ -6,6 +6,7 @@ price: 792
 price_monthly: 66
 image: /static/img/product10.jpg
 image_alt_text: Quae quo sunt excelsiores, eo dant c
+code: OUT1234928
 
 ---
 Quae quo sunt excelsiores, eo dant clariora indicia naturae.
