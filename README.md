@@ -260,19 +260,18 @@ Now, if someone wishes to change the theme, a quick tweak to the config file wil
 
 # Using HMAC Validation
 
-Foxy.io supports using HMAC authentication codes to criptographically protect your e-commerce website, stopping users from tampering with products features and prices.
+Foxy.io supports using HMAC signatures to cryptographically protect your add-to-cart links and forms. Though this is less a concern for non-profit organizations accepting donations, it is nonetheless worth implementing if you're able.
 
-** Caution :** Please notice that HMAC authentication is a security issue and should be approached with caution.
-This minisite comes with an easy to setup HMAC Validation that is documented here. If you need more information or intend to customize the implementation, please, refer to the documentation at https://wiki.foxycart.com/v/2.0/hmac_validation
+This minisite includes functionality to make it straightforward to setup the link & form signatue functionality, which is documented below. If you need more information or intend to customize the implementation, please, refer to the documentation at https://wiki.foxycart.com/v/2.0/hmac_validation
 
 ## Easy setup
 
 This minisite comes with an easy to use setup of HMAC validation.
 
 In order to use this feature you need to:
-- provide your Store Secret as an environment variable
-- provide a code for each product
-- configure your store to use HMAC validation
+- provide your Store Secret (or the specific "HMAC signature generation" key within your store secret) as an environment variable
+- provide a `code` parameter for each product
+- configure your store to use HMAC validation (a checkbox in the Advanced Settings of your store)
 
 ### Provide your HMAC Secret
 
@@ -290,6 +289,8 @@ Look for a field called "store secret", click the "Show button" and copy your se
 
 ![](docs/img/step2.png)
 
+Note that you may have a JSON-formatted secret that includes multiple values. In that case, copy out the `cart_signing` value.
+
 ##### While we're here, configure your store to use HMAC validation
 
 To do that, check the "would you like to enable cart validation" box in the same page.
@@ -299,10 +300,9 @@ To do that, check the "would you like to enable cart validation" box in the same
 
 #### Second, provide the secret to your deploy
 
-When you click the deploy button Netlify will ask you some questions. One of them is your store secret. If you provide it there, this step will not be necessary.
+When you click the "Deploy to Netlify" button, Netlify will ask you some questions. One of them is your store secret. If you provide it there, this step will not be necessary.
 
-Go to your account in Netlify, choose the appropriate site
-and follow these steps:
+Go to your account in Netlify, choose the appropriate site and follow these steps:
 
 1. Click Overview;
 1. Click Site Settings;
@@ -313,8 +313,7 @@ You'll find this form:
 
 ![](docs/img/step4.png)
 
-The key must be FOXYSTORESECRET and the value is your
-secret.
+The key must be FOXYSTORESECRET and the value is your secret.
 
 ```
 Key : FOXYSTORESECRET
@@ -323,7 +322,7 @@ Value: You Secret
 
 ### Provide a code for each product
 
-The products in the **products** folder may have a field called "code". This code is needed for the HMAC Validation to be correctly used. This code is a product identifier and you may use whater code you please, provided each product has its own unique code.
+The products in the **products** folder may have a field called `code` (which you can think of as a `SKU` if you prefer that term). This code is needed for the HMAC Validation to be correctly used. This code is a product identifier and you may use whater code you please, provided each product has its own unique code.
 
 Here is an example from `src/product/product2.md`
 
@@ -342,7 +341,7 @@ code: WEA4983901
 Non risu potius quam oratione eiciendum? Nihil enim hoc differt.
 ```
 
-Notice the code `WEA4983901`. Only products with codes such as this will be signed. Other products **will not be protected with HMAC validation in any way**.
+Notice the code `WEA4983901`. Only products with codes such as this will be signed. Other products **will error when added to the cart**. So just make sure all your products have a code (and that the codes are unique per product).
 
 
 
