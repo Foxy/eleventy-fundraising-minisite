@@ -262,7 +262,7 @@ Now, if someone wishes to change the theme, a quick tweak to the config file wil
 
 Foxy.io supports using HMAC signatures to cryptographically protect your add-to-cart links and forms. Though this is less a concern for non-profit organizations accepting donations, it is nonetheless worth implementing if you're able.
 
-This minisite includes functionality to make it straightforward to setup the link & form signatue functionality, which is documented below. If you need more information or intend to customize the implementation, please, refer to the documentation at https://wiki.foxycart.com/v/2.0/hmac_validation
+This minisite includes functionality to make it straightforward to setup the link & form signature functionality, which is documented below. If you need more information or intend to customize the implementation, please, refer to the documentation at https://wiki.foxycart.com/v/2.0/hmac_validation
 
 ## Easy setup
 
