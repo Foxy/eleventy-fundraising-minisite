@@ -5,6 +5,8 @@
 const fetch = require('node-fetch');
 
 async function fetchLoremIpsum(paragraphs, size) {
+  // Remove the line bellow to see dynamic content in action
+  return await new Promise( (resolve, reject) =>  { resolve({ text:()=>`This comes from a Lorem Ipsum service. Remove this line to see dynamic content in action`})});
   // do some async things
   console.assert(Number.isInteger(paragraphs));
   console.assert(['medium','short','long'].includes(size));
