@@ -86,6 +86,17 @@ npm i
 npm run start
 ```
 
+If you're using the HMAC signing functionality, create a file called `secrets.sh` with the following:
+
+```bash
+export FOXYSTORESECRET=abc123
+```
+Then you'd run this `npm` command:
+
+```bash
+source ./secrets.sh && npm run start
+```
+
 If all goes well, you'll see something like this:
 
 ```
