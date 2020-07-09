@@ -86,7 +86,7 @@ npm i
 npm run start
 ```
 
-If you're using the HMAC signing functionality, create a file called `secrets.sh` with the following:
+If you're using the HMAC signing functionality, create a file called `secrets.sh` with the following (replacing the `abc123` with your store secret):
 
 ```bash
 export FOXYSTORESECRET=abc123
