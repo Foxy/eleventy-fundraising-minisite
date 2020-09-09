@@ -67,4 +67,33 @@ ol li {
 	@apply pb-1;
 }
 
+#content > section {
+	@apply pt-8 p-8 text-left relative;
+}
+
+/**
+ * Set variables for the lumo theme
+ */
+foxy-donation {
+	--lumo-primary-text-color: #05668d;
+	--lumo-primary-color-50pct: rgba(2, 128, 144, 0.5);
+	--lumo-primary-color-10pct: rgba(2, 128, 144, 0.1);
+	--lumo-primary-color: #028090;
+	--lumo-header-text-color: #05668d;
+	--lumo-body-text-color: #028090;
+	--lumo-primary-contrast-color: #fefff5;
+	--lumo-tint-5pct: rgba(240, 243, 189, 0.05);
+	--lumo-tint-10pct: rgba(240, 243, 189, 0.1);
+	--lumo-tint-20pct: rgba(240, 243, 189, 0.2);
+	--lumo-tint-30pct: rgba(240, 243, 189, 0.3);
+	--lumo-tint-40pct: rgba(240, 243, 189, 0.4);
+	--lumo-tint-50pct: rgba(240, 243, 189, 0.5);
+	--lumo-tint-60pct: rgba(240, 243, 189, 0.6);
+	--lumo-tint-70pct: rgba(240, 243, 189, 0.7);
+	--lumo-tint-80pct: rgba(240, 243, 189, 0.8);
+	--lumo-tint-90pct: rgba(240, 243, 189, 0.9);
+	--lumo-tint: #f0f3bd;
+	--lumo-secondary-text-color: #02c39a;
+}
+
 @tailwind utilities;

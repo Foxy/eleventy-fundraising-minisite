@@ -3,7 +3,7 @@ layout: onepage.njk
 title: JAMStack e-commerce with Foxy.io
 ---
 
-<section id="welcome" class="pt-8 p-8 md:p-12 text-left">
+<section id="welcome" class="md:p-12">
   <h1>
     {{ site.title }}
   </h1>
@@ -14,18 +14,12 @@ title: JAMStack e-commerce with Foxy.io
   {% set welcome %}{% include './_data/welcome.md' %}{% endset %}
   {% markdown welcome %}
 
-  {# {% if site.texts.presentation %}
-    <div>
-      {{ site.texts.presentation }}
-    </div>
-  {% endif %} #}
-
   {% if collections.highlight.length > 1 %}
   <h4>
-    {{ site.texts.highlightsTitle }}
+    {{ site.texts.highlights_title }}
   </h4>
 
-  {% markdown site.texts.highlightsText %}
+  {% markdown site.texts.highlights_text %}
 
   <ul>
 
@@ -49,9 +43,9 @@ title: JAMStack e-commerce with Foxy.io
 {% if site.texts.aboutTitle %}
 <hr />
 
-<section id="about" class="pt-8 p-8 md:p-12 text-left relative">
+<section id="about" class="md:p-12">
   {% include 'backToTop.njk' %}
-  <h2>{{ site.texts.aboutTitle }}</h2>
+  <h2>{{ site.texts.about_title }}</h2>
 
   {% set about %}{% include './_data/about.md' %}{% endset %}
   {% if about %}{% markdown about %}{% endif %}
@@ -65,13 +59,35 @@ title: JAMStack e-commerce with Foxy.io
 {% endif %}
 
 <hr />
-
-<section id="products" class="pt-8 p-8 md:p-12 pb-0 md:pb-0 text-left relative">
+<section id="donate" class="md:p-12">
   {% include 'backToTop.njk' %}
-  <h2>{{ site.texts.productsTitle }}</h2>
+  <h2>{{ site.texts.donate_title }}</h2>
+  {% set strippedStoreDomain = store.storedomain.replace('.foxycart.com', '') %}
+
+  <foxy-donation store="{{strippedStoreDomain}}"
+                 name="{{site.donation_form.name}}"
+                 amount="{{site.donation_form.amount}}"
+                 currency="{{site.currency}}"
+                 {% if site.donation_form.amounts %} amounts="{{site.donation_form.amounts}}" {% endif %}
+                 {% if site.donation_form.custom %} custom='{{site.donation_form.custom}}' {% endif %}
+                 {% if site.donation_form.designation %} designation='{{site.donation_form.designation}}' {% endif %}
+                 {% if site.donation_form.designations %} designations='{{site.donation_form.designations}}' {% endif %}
+                 {% if site.donation_form.frequencies %} frequencies='{{site.donation_form.frequencies}}' {% endif %}
+                 {% if site.donation_form.frequency %} frequency="{{site.donation_form.frequency}}" {% endif %}
+                 {% if site.donation_form.comment %} comment {% endif %}
+                 {% if site.donation_form.anonymity %} anonymity {% endif %}
+                 >
+  </foxy-donation>
 </section>
 
-<section class="container p-2 pb-4 m-auto flex w-full flex-wrap items-stretch justify-start relative">
+<hr />
+
+<section id="items" class="pb-0 md:p-12 md:pb-0">
+  {% include 'backToTop.njk' %}
+  <h2>{{ site.texts.needed_items_title }}</h2>
+</section>
+
+<div class="container p-2 pb-4 m-auto flex w-full flex-wrap items-stretch justify-start relative">
   {% for product in collections.product %}
 
     <div class="flex flex-col items-center w-full lg:w-1/2 p-2">
@@ -154,4 +170,4 @@ title: JAMStack e-commerce with Foxy.io
     </div>
   {% endfor %}
 
-</section>
+</div>

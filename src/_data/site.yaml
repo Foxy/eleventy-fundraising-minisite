@@ -20,17 +20,40 @@ navigation:
     url: "#about"
     description: Learn about what we're doing
   - name: Donate!
-    url: "#products"
+    url: "#donate"
     description: Help support us
+  - name: Needed items
+    url: "#items"
+    description: Help with a specific item
 
 # The following are the headings for the navigation
 texts:
-  highlightsTitle: "Here are some of our highlights"
-  highlightsText: "Click the links below to load the videos while you browse."
-  aboutTitle: "About Us" # This the heading for the 2nd section, if desired.
-  productsTitle: "Donation Items" # This is the heading for the products / donation items.
+  highlights_title: "Here are some of our highlights"
+  highlights_text: "Click the links below to load the videos while you browse."
+  about_title: "About Us" # This the heading for the 2nd section, if desired.
+  donate_title: "Donate"
+  needed_items_title: "Needed Items" # This is the heading for the products / donation items.
 
 currency_symbol: $
+currency: usd
+
+donation_form:
+  name: "One-Time Donation" # this field is required
+  amount: 100 # this field is required
+  # fields bellow can be ommited to stop the form from using them
+  # you can simply delete them, but it would be best to simply comment it out so you can bring it back if you wish.
+  amounts: "[25, 50, 100, 500,1000]" # must be in JSON format
+  anonymity: false
+  comment: false
+  custom: '["amount", "designation"]' # must be in JSON format
+  designation: '["Area of Greatest Need"]' # must be in JSON format. Sets the default designation value.
+  designations: '["Area of Greatest Need", "Medical Aid", "Economic Relief"]' # Sets the degination options.
+  frequencies: '["0d", "1m", "2m", "3m"]' # must be in JSON format. Sets the frequencies options.
+  frequency: "1m" # set the default frequency option
+  # use 1d for 1 per day (daily contributions)
+  # use 1w for 1 per week (weekly contributions)
+  # use 1m for 1 per month (monthly contributions)
+  # use 1y for 1 per year (yearly contributions)
 
 # Careful! Use quotes around your links.
 social_networks:
