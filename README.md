@@ -2,7 +2,7 @@
 
 Kickstart your ecommerce with a few clicks. Perfect for non-profit fundraising mini-sites, live events, or anybody looking to build a clean one-page ecommerce or donation site.
 
-Original repo is [Foxy/eleventy-fundraising-minisite](https://github.com/Foxy/eleventy-fundraising-minisite/edit/master/README.md). Related blog post at [Foxy.io](https://www.foxy.io/blog/building-a-turnkey-fundraising-mini-site-with-foxy-and-eleventy/).
+Demo site is at https://eleventy-fundraising-minisite.demos.foxy.io/. Original repo is [Foxy/eleventy-fundraising-minisite](https://github.com/Foxy/eleventy-fundraising-minisite/edit/master/README.md). Related blog post at [Foxy.io](https://www.foxy.io/blog/building-a-turnkey-fundraising-mini-site-with-foxy-and-eleventy/).
 
 ## Who This Is For (and Prerequisites)
 
