@@ -1,13 +1,11 @@
-<div class="w-1/3 pr-1">
-  <div class="custom-number-input">
-    <div class="flex flex-row w-full rounded-lg relative bg-transparent">
-      <button data-action="decrement" class=" bg-gray-300 text-dark hover:text-light hover:bg-dark h-full w-20 rounded-l cursor-pointer outline-none">
-        <span class="m-auto text-2xl leading-none font-thin">−</span>
+  <div class="custom-number-input h-full text-xl font-thin text-contrast-60">
+    <div class="flex flex-row w-full justify-between h-full text-xl rounded bg-shade-20 overflow-hidden relative">
+      <button data-action="decrement" class="hover:text-primary-contrast hover:bg-contrast-70 h-full w-s cursor-pointer outline-none">
+        <span class="m-auto leading-none font-thin">−</span>
       </button>
-      <input type="number" min="1" class="outline-none overflow-hidden focus:outline-none text-center w-full bg-gray-300 font-semibold text-xs text-dark hover:text-black focus:text-black  md:text-basecursor-default flex items-center  outline-none" name="quantity" value="1"></input>
-      <button data-action="increment" class="bg-gray-300 text-dark hover:text-light hover:bg-dark h-full w-20 rounded-r cursor-pointer">
-        <span class="m-auto text-2xl leading-none font-thin">+</span>
+      <input type="number" min="1" class="outline-none overflow-hidden bg-transparent focus:outline-none text-center w-s font-semibold text-xs text-contrast-60 hover:text-contrast focus:text-contrast  md:text-basecursor-default flex items-center  outline-none" name="quantity" value="1"></input>
+      <button data-action="increment" class="hover:text-primary-contrast hover:bg-contrast-70 h-full w-s cursor-pointer">
+        <span class="m-auto leading-none font-thin">+</span>
       </button>
     </div>
   </div>
-</div>

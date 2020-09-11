@@ -15,11 +15,11 @@
     <script type="module" src="https://static.www.foxycart.com/beta/foxy-elements/0.3.0/foxy-donation.js"></script>
   </head>
   <body class="font-sans">
+    {% include "lumo.html" %}
     {# {% include "nav.njk" %} #}
     {{ content | safe }}
     {# {% include "footer_bottom.njk" %} #}
     <script src="/static/app.bundled.js"></script>
     <script data-cfasync="false" src="https://cdn.foxycart.com/{{ store.storedomain | replace(".foxycart.com", "") }}/loader.js" async defer></script>
-
   </body>
 </html>

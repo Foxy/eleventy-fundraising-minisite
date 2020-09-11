@@ -1,9 +1,9 @@
-<nav id="menu" class="font-sans bg-white text-center flex justify-between my-4 mx-auto container overflow-hidden">
-  <a href="/" class="block text-left ml-4" style="max-width:10rem">
+<nav id="menu" class="font-sans text-center flex justify-between my-s mx-auto container overflow-hidden">
+  <a href="/" class="block text-left ml-l" style="max-width:10rem">
     <img src="{{store.logo}}" id="logo" alt="Our logo" >
   </a>
 
-  <ul class="text-sm text-gray-700 list-none p-0 flex items-center">
+  <ul class="text-s text-contrast-70 list-none p-0 flex items-center">
     {%- for item in site.navigation -%}
       {% include "listLink.njk" %}
     {%- endfor -%}

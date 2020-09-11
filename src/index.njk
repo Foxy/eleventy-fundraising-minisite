@@ -3,7 +3,7 @@ layout: onepage.njk
 title: JAMStack e-commerce with Foxy.io
 ---
 
-<section id="welcome" class="md:p-12">
+<section id="welcome" class="md:p-l">
   <h1>
     {{ site.title }}
   </h1>
@@ -43,7 +43,7 @@ title: JAMStack e-commerce with Foxy.io
 {% if site.texts.aboutTitle %}
 <hr />
 
-<section id="about" class="md:p-12">
+<section id="about" class="md:p-l">
   {% include 'backToTop.njk' %}
   <h2>{{ site.texts.about_title }}</h2>
 
@@ -59,7 +59,7 @@ title: JAMStack e-commerce with Foxy.io
 {% endif %}
 
 <hr />
-<section id="donate" class="md:p-12">
+<section id="donate" class="md:p-l">
   {% include 'backToTop.njk' %}
   <h2>{{ site.texts.donate_title }}</h2>
   {% set strippedStoreDomain = store.storedomain.replace('.foxycart.com', '') %}
@@ -82,19 +82,20 @@ title: JAMStack e-commerce with Foxy.io
 
 <hr />
 
-<section id="items" class="pb-0 md:p-12 md:pb-0">
+<section id="items" class="pb-0 md:p-l md:pb-0">
   {% include 'backToTop.njk' %}
   <h2>{{ site.texts.needed_items_title }}</h2>
 </section>
 
-<div class="container p-2 pb-4 m-auto flex w-full flex-wrap items-stretch justify-start relative">
+<div class="container p-s pb-m m-auto flex w-full flex-wrap items-stretch justify-start relative">
   {% for product in collections.product %}
 
-    <div class="flex flex-col items-center w-full lg:w-1/2 p-2">
+    <div class="flex flex-col items-center w-full lg:w-1/2 p-s">
       {# TIP: Use includes to avoid repetition
           11ty recognizes template files in the _includes folder.
       #}
-      <div data-foxy-product-container="data-foxy-product-container" class="rounded-md overflow-hidden shadow-lg border-dark border-2 h-full w-full">
+
+      <div data-foxy-product-container class="rounded overflow-hidden shadow-xs border-primary border-2 h-full w-full">
         {% if product.data.image %}
           <div>
             {% productPicture product.data.image,
@@ -102,13 +103,13 @@ title: JAMStack e-commerce with Foxy.io
           </div>
         {% endif %}
 
-        <div class="p-3">
+        <div class="p-m">
           <input type="hidden" name="name" value="{{ product.data.name }}">
           <input type="hidden" name="price" value="{{ product.data.price }}">
 
           <div class="flex flex-wrap text-lg">
             <div class="w-2/3">
-              <h4 class="font-bold mb-1 text-dark">{{ product.data.name }}</h4>
+              <h4 class="font-bold mb-xs text-contrast-60">{{ product.data.name }}</h4>
             </div>
             <div class="w-1/3 text-right text-primary">
               {% if product.data.price < 10000 %}
@@ -124,18 +125,20 @@ title: JAMStack e-commerce with Foxy.io
             </div>
           </div>
 
-          <hr class="my-1">
+          <hr class="my-xs border-contrast-20">
 
-          <div class="text-dark text-base">
+          <div class="text-contrast-60">
             {{ product.templateContent|safe }}
           </div>
 
-          <hr class="my-3">
+          <hr class="my-xs border-contrast-20">
 
-          <div class="flex flex-wrap leading-7 text-sm space-x-2 justify-between">
-            {% include "custom_number_input.njk" %}
+          <div class="flex flex-wrap text-s">
+            <div class="pr-xs pt-s flex-1">
+              {% include "custom_number_input.njk" %}
+            </div>
 
-            <div class="w-1/3 pr-1">
+            <div class="pr-xs pt-s flex-1">
               {# TIP: Set variables to feed includes Notice that this includes can call other includes. By setting the variable addToCartBtn here we can feed the include with the data it needs #}
               {% if product.data.price %}
                 {% set addToCartBtn = {
@@ -149,14 +152,14 @@ title: JAMStack e-commerce with Foxy.io
                 {% include "addtocart_button.njk" %}
               {% endif %}
             </div>
-            <div class="w-1/3 px-0">
+            <div class="px-0 pt-s flex-1">
               {% if product.data.price_monthly %}
                 {% set addToCartBtn = {
                   monthly: true,
                   product: product.data,
                   currency: site.currency_symbol,
                   price: product.data.price_monthly,
-                  color: 'primary-dark',
+                  color: 'contrast-80',
                   code: product.data.code,
                   text: 'Monthly'
                 }
