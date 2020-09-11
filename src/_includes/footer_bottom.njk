@@ -1,12 +1,12 @@
-<footer class="font-sans bg-dark text-white py-8 px-4">
+<footer class="font-sans bg-contrast-70 text-primary-contrast py-xl px-m">
   <div class="mx-auto container overflow-hidden flex flex-col lg:flex-row justify-between">
 
-      <div class="text-gray-700 flex flex-col">
-        <div class="inline-block py-2 px-3 text-white uppercase font-medium tracking-wide">Follow Us</div>
-        <div class="flex pl-4 justify-start">
+      <div class="flex flex-col">
+        <div class="inline-block py-s px-s uppercase font-medium tracking-wide">Follow Us</div>
+        <div class="flex pl-m justify-start">
         {% for key, i in site.social_networks %}
           <a href="{{ i.url }}"
-          class="block flex items-center text-white hover:text-light mr-6 no-underline" >
+          class="block flex items-center text-primary-contrast hover:text-tertiary mr-l no-underline" >
             <i class="{{ i.icon }}"></i>
           </a>
         {% endfor %}
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="pt-4 mt-4 text-white text-xs border-t border-light text-center">
+    <div class="pt-m mt-m text-contrast-primary text-xs border-t border-contrast-30 text-center">
       ©{% currentYear %} {{ site.author }}
     </div>
 

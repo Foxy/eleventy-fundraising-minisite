@@ -91,6 +91,7 @@ If you're using the HMAC signing functionality, create a file called `secrets.sh
 ```bash
 export FOXYSTORESECRET=abc123
 ```
+
 Then you'd run this `npm` command:
 
 ```bash
@@ -113,8 +114,9 @@ Load up that URL in your browser and see your site! And, extra cool: If you chan
 1. **Set your Foxy store config:** Edit `src/_data/store.js`. These values can come from the Netlify environment variables, but you may want to set them here for your local development.
 1. **Set your own products:** There's a `_products` folder. Replace the products with your own. We'll go into detail in the [Detailed Product Step-By-Step](#detailed-product-step-by-step), which includes fetching products from an external API.
 1. **Set your own logo:** Replace the `src/static/logo.png` file with your own. Also, replace the _favicon_ files in `src/static/img/`. Alternately, you can change the logo filename or location by editing the `store.js` file. (Try [favicon.io](https://favicon.io/) to make it easy. The placeholder logo is from [DesignEvo free logo creator](https://www.designevo.com/logo-maker/).)
-1. **Set your own theme:** If you are comfortable with CSS and TailwindCSS, go for it. If you aren't, check out the `tailwind.config.js` file in the root directory of the project. By setting these variables, you can start making the website look your own. You can take a look at `/src/assets/stylesheets/app.css` to get a sense for how Tailwind works.
+1. **Set your own theme:** You can use [lumo editor](https://demo.vaadin.com/lumo-editor/) to tweak your theme. It is a very neat graphical tool. Use the code it generates to replace the `src/_includes/lumo.html` file. Of course, if you are comfortable with CSS and TailwindCSS, go for it. If you aren't, check out the `tailwind.config.js` file in the root directory of the project. By setting these variables, you can start making the website look your own. You'll notice the utility classes Tailwind provides throughout the code.
 1. **Set your own videos:** There's a `src/_highlights` folder. In this Each file contains something you want to highlight. Add or remove de `.md` files do add or remove highlights. The first one will be the first video available. They are also used to build the Highlight section of the website.
+1. **Set your donation form configuration:** Edit `src/_data/site.yaml` file. You can customize the behavior of the donation form, changing default values, options available and even removing fields altogether. For examples of what possible config options look like, visit [elements.foxy.io](https://elements.foxy.io/?path=/docs/integrations-foxy-donation--default-story).
 1. **ADVANCED: Fetch your data on compile time:** There's a `src/_data/lorem.js` file. It demonstrates how to fetch data from your own API during compile time. This way, you can have your content updated on each new deploy. **Be sure to remove `src/_data/lorem.js` file** if you're not going to use it. It makes real requests during build time. If you are not going to use the data fetched it is simply making unnecessary requests to the server and making your build time slower.
 
 ## Want to dive deeper?
@@ -280,6 +282,7 @@ This minisite includes functionality to make it straightforward to setup the lin
 This minisite comes with an easy to use setup of HMAC validation.
 
 In order to use this feature you need to:
+
 - provide your Store Secret (or the specific "HMAC signature generation" key within your store secret) as an environment variable
 - provide a `code` parameter for each product
 - configure your store to use HMAC validation (a checkbox in the Advanced Settings of your store)
@@ -292,7 +295,7 @@ Navigate to you store admin page in Foxy.io
 
 https://admin.foxycart.com/admin.php
 
-Then, visit the Advanced link:  https://admin.foxycart.com/admin.php?ThisAction=EditAdvancedFeatures
+Then, visit the Advanced link: https://admin.foxycart.com/admin.php?ThisAction=EditAdvancedFeatures
 
 ![](docs/img/step1.png)
 
@@ -307,7 +310,6 @@ Note that you may have a JSON-formatted secret that includes multiple values. In
 To do that, check the "would you like to enable cart validation" box in the same page.
 
 ![](docs/img/step3.png)
-
 
 #### Second, provide the secret to your deploy
 
@@ -347,15 +349,12 @@ price_monthly: 39
 image: /static/img/product9.jpg
 image_alt_text: Non risu potius quam oratione eiciendum? N
 code: WEA4983901
-
 ---
+
 Non risu potius quam oratione eiciendum? Nihil enim hoc differt.
 ```
 
 Notice the code `WEA4983901`. Only products with codes such as this will be signed. Other products **will error when added to the cart**. So just make sure all your products have a code (and that the codes are unique per product).
-
-
-
 
 # Merging New Features to Your Site
 
@@ -365,7 +364,6 @@ When using the Deploy to Netlify button, it creates a clone of this repo, and _n
 1. Run `git fetch upstream`
 1. Run `git merge upstream/master`
 1. Review any merge conflicts, commit, and push to your own repo so Netlify deploys.
-
 
 # Where to go from here?
 

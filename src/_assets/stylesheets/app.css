@@ -32,7 +32,7 @@ img#logo {
 }
 
 #content > hr {
-	@apply m-4 mx-8 border-primary;
+	@apply m-xs mx-s border-primary;
 }
 
 [data-foxy-product-container] div.text-dark.text-base > p:last-of-type {
@@ -40,31 +40,35 @@ img#logo {
 }
 
 h1 {
-	@apply text-3xl text-left text-primary-dark font-bold leading-none pb-2;
+	@apply text-xxxl text-left text-primary font-bold leading-none pb-m;
 }
 h2 {
-	@apply text-2xl text-left text-primary font-bold leading-none pb-2;
+	@apply text-xl text-left text-secondary font-bold leading-none pb-s;
 }
 h3 {
-	@apply text-xl text-left text-primary font-bold leading-none pb-2;
+	@apply text-l text-left text-primary font-bold leading-none pb-xs;
 }
 h4 {
-	@apply text-lg text-left text-primary font-bold leading-none pb-2;
+	@apply text-m text-left text-primary font-bold leading-none pb-xs;
 }
 p,
 ol,
 ul {
-	@apply pb-4;
+	@apply pb-xs;
 }
 ul {
-	@apply list-disc px-8 text-left;
+	@apply list-disc px-s text-left list-inside;
 }
 ol {
-	@apply list-decimal px-8 text-left;
+	@apply list-decimal px-s text-left list-inside;
 }
 ul li,
 ol li {
-	@apply pb-1;
+	@apply pb-xs;
+}
+
+#content > section {
+	@apply p-xl text-left relative;
 }
 
 @tailwind utilities;
