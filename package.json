@@ -22,7 +22,7 @@
 		"html-minifier": "^4.0.0",
 		"husky": "^4.2.5",
 		"js-yaml": "^3.13.1",
-		"luxon": "^1.22.0",
+		"luxon": "^2.5.2",
 		"node-fetch": "^2.6.0",
 		"postcss-cli": "^7.1.0",
 		"prettier": "2.0.5",
